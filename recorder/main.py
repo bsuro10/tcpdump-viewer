@@ -4,6 +4,3 @@ app = Flask(__name__)
 @app.route('/')
 def handler():
     return ('',200)
-
-def tcpdumpExec():
-    return ('',200)
