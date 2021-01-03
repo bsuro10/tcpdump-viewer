@@ -17,3 +17,12 @@ def handler():
         return ('An error has occurred while running the script ./record.sh', 500)
 
     return ('Succeded',200)
+
+def findProcessId(containerid):
+    proc = subprocess.Popen(['docker','inspect','-f','{{.State.Pid}}', containerid], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    processid = proc.communicate()[0]
+    #err = proc.communicate()[1]
+    
+    #if err:
+    #    return err
+    return 
