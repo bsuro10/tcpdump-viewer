@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: recorder
+  labels:
+    app: recorder
+spec:
+  selector:
+    matchLabels:
+      name: recorder
+  template:
+    metadata:
+      labels:
+        name: recorder
+    spec:
+      hostNetwork: true
+      containers:
+      - name: recorder
+        image: dockerhub.io/bsuro10/recorder:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:
+        - name: tcpdump-data
+          mountPath: /app/data
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: tcpdump-data
+        hostPath:
+          path: /home/root/tcpdump-data

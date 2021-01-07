@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: recorder-testing-pod
+  labels:
+    app: recorder-testing-pod
+spec:
+  containers:
+    - name: recroder-testing-pod
+      image: nginx
+  nodeSelector:
+    kubernetes.io/hostname: 'kind-worker'
