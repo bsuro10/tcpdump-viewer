@@ -7,6 +7,11 @@ metadata:
 spec:
   containers:
     - name: recroder-testing-pod
-      image: nginx
+      image: bsuro10/recorder-testing:latest
   nodeSelector:
     kubernetes.io/hostname: 'kind-worker'
+  env:
+    - name: LOG_LEVEL
+      valueFrom:
+        configMapKeyRef:
+          name: env-config
