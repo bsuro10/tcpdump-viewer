@@ -1,5 +1,7 @@
-FROM registry.access.redhat.com/ubi8/python-36-flask
+FROM bsuro10/python-36-flask
 WORKDIR /app
-COPY record.sh /app
-COPY main.py /app
-CMD ["python3","-m","flask","main.py"]
+ENV FLASK_APP main.py
+COPY record.sh .
+COPY main.py .
+EXPOSE 5000
+CMD ["python3","-m","flask","run"]
