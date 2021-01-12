@@ -4,4 +4,4 @@ ENV FLASK_APP main.py
 COPY record.sh .
 COPY main.py .
 EXPOSE 5000
-CMD ["python3","-m","flask","run"]
+CMD ["python","main.py"]

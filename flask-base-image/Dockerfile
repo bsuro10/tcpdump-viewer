@@ -1,2 +1,3 @@
 FROM registry.access.redhat.com/ubi8/python-36
-RUN pip install flask
+RUN pip install flask && \
+    pip install requests

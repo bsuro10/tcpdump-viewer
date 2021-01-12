@@ -20,6 +20,12 @@ while [ $# -gt 0 ]; do
 	shift
 done
 
+if [[ ${HOST} == '' || ${PORT} == '' ]]
+then
+	echo "--port and --host flags are required"
+	exit 1 
+fi
+
 TCPDUMP_COMMAND="/usr/sbin/tcpdump -vvvni any host ${HOST}"
 if [[ ! -z "$PORT" ]]
 then

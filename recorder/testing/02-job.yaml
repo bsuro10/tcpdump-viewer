@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: recorder-testing-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: recroder-testing-pod
+        image: bsuro10/recorder-testing:0.3
+        envFrom:
+        - configMapRef:
+            name: env-config
+      restartPolicy: Never
+      hostNetwork: true
+  backoffLimit: 0

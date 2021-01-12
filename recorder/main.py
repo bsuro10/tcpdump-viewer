@@ -15,8 +15,6 @@ def handler():
     
     proc = subprocess.Popen(['timeout',timeout + 's','./record.sh','--processid=' + processId,'--port=' + port, '--host=' + host],stderr=subprocess.PIPE)
     err = proc.communicate()[0]
-    
-    print('timeout',timeout + 's','./record.sh','--processid=' + processId,'--port=' + port, '--host=' + host)
     if err:
         print(err)
         return ('An error has occurred while running the script ./record.sh', 500)
